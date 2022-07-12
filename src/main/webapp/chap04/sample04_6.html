@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM 조회</title>
+</head>
+<body>
+    <!-- id=header1"과 id="header2"인 <h1>태그를 정의한다. -->
+    <h1 id="header1">header1입니다.</h1>
+    <h1 id="header2">header2입니다.</h1>
+
+   <script type="text/javascript">
+     // id속성을 이용하는 CSS 선택자 표현방법은 "#id값"이다. 따라서 14행은 id 값이 header1을 가진 요소를 반환한다.
+     var h = document.querySelector("#header1");
+     console.log(h.innerHTML);
+     
+     //<h1>태그를 모두 선택하기 위하여 querySelectorAll("h1") 메서드를 사용하여 배열로 반환받고, 반복문을 사용하여 콘솔에 출력한다.
+     var headers=document.querySelectorAll("h1");
+     for(var i=0; i<headers.length; i++){
+    	 console.log(i+">"+headers[i].innerHTML);
+     }
+   </script>
+</body>
+</html>

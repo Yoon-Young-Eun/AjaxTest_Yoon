@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax 실습</title>
+<script type="text/javascript">
+// 쿼리스트링(query string)은 클라이언트에서 서버로 파라미터로 전송할때 name=value&name2=value2 형식으로 전달하는 표현식을 의미
+var xhttp;
+function createHttpRequest(){
+	xhttp = new XMLHttpRequest();
+}
+
+function mySend(){
+	createHttpRequest();
+	xhttp.onreadystatechange =callFunction;
+	xhttp.open("post", "samplePost.jsp", true);
+	var sendString = "userid= 홍길동&passwd=post";
+	//1.post방식으로 요청할 때에는 Content-Type 헤더에 "application/x-www-form-urlencoded"값을 설정해야 한글처리가 가능하다.
+	xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	//2. 또한 send()에는 null 값 대신에 쿼리스트링을 설정해야 한다. 
+	xhttp.send(sendString); 
+}
+function callFunction(){
+	if(xhttp.readyState==4){
+		if(xhttp.status==200){
+			var responseData = xhttp.responseText;
+			document.getElementById("result").innerHTML = responseData;
+		}
+	}
+}
+</script>
+</head>
+<body>
+   POST 파라미터 파일 실습입니다.<br>
+   <button onclick="mySend()">파일수신 </button>
+   <div id="result"></div>
+</body>
+</html>

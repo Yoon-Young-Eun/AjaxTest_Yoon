@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax 실습</title>
+<script type="text/javascript">
+ 
+ var xhttp;  //XMLHttpRequest 객체를 저장할 JavaScript 변수 xhttp를 선언한다.
+ function createHttpRequest(){   // XMLHttpRequest 객체를 생성하여 xhttp 변수에 저장한다.
+	 xhttp= new XMLHttpRequest();
+ }
+
+ function mySend(){
+	 createHttpRequest(); //  createHttpRequest() 함수를 호출하여 
+	 xhttp.onreadystatechange =callFunction; // XMLHttpRequest 객체를 생성
+	 xhttp.open("GET", "sample.txt", true);  //get방식으로 서버에 sample.txt 파일을 비동기로 요청
+	 //서버의 응답을 처리하기 위해 onreadystatechange프로퍼티에서는 readyState 반환값에 따라 자동으로 
+	 // 호출하여 callFunction 함수를 설정한다.
+	 xhttp.send(null);
+ }
+ 
+ function callFunction(){ //서버와 클라이언트 간의 통신이 모두 성공적으로 완료된 시점이 
+	 if(xhttp.readyState==4){//readState는 4이고,
+		 if(xhttp.status==200){//status는 200이다 따라서 2개의 값으로 조건 검사를 하고 응답 데이터 형식은
+			 var responseData = xhttp.responseText; // responseText 프로퍼티를 이용한 일반 텍스트 형식으로 데이터를 받는다.
+			 document.getElementById("result").innerHTML =responseData;//id값이 result인 div태그를
+		 }  //참조하여 innerHTML로 응답 데이터를 화면에 출력한다.
+	 }
+ }
+</script>
+</head>
+<body>
+  일반 텍스트 파일 실습입니다.<br>  <!-- 파일 수신 버튼을 클릭할 때 mySend()함수를 호출하는 이벤트 핸들러 -->
+   <button onclick="mySend()">파일 수신</button>   <!-- <button>태그를 설정한다. -->
+   <div id="result"></div>  <!-- id 값이 result인 <div>태그를 설정한다. -->
+</body>
+</html>

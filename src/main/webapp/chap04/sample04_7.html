@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM 조회</title>
+</head>
+<body>
+   <h1 id="header1">header1입니다.</h1> <!-- 삭제할 노드 -->
+   <h1 id="header2">header2입니다.</h1>
+   
+   <script type="text/javascript">
+     var del=document.getElementById("header1"); //삭제한<h1>태그를 찾기 위해 getElementById() 메서드를 사용한다.
+     document.body.removeChild(del); // 태그로 부터 삭제하기 위하여 removeChild(삭제 노드) 메서드를 호출한다.
+   </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax 실습</title>
+<script type="text/javascript">
+
+ var xhttp;
+ function createHttpRequest(){
+	 xhttp = new XMLHttpRequest();
+ }
+ 
+ function mySend(){
+	 createHttpRequest();
+	 xhttp.onreadystatechange = callFunction;
+	 xhttp.open("get", "sampleText.jsp?userid=홍길동&passwd=test", true); 
+	//파라미터를 get방식으로 요청하기 위하여, SampleTest.jsp파일에 'userid=홍길동&passwd=test'쿼리스트링을 추가한다.
+	 xhttp.send(null); //get방식에서의 send()메서드는 파라미터로 null 값을 지정한다.
+ }
+ 
+ function callFunction(){
+	 if(xhttp.readyState ==4){
+		 if(xhttp.status ==200){
+			 var responseData = xhttp.responseText;
+			 document.getElementById("result").innerHTML =responseData; //sampleText.jsp에서 응답하는  
+			 //데이터는 일반 테스트 문자열이기 때문에 responseText 프로퍼티로 받아서 처리한다.
+		 }
+	 }
+ }
+</script>
+</head>
+<body>
+  JSP파라미터 파일 실습입니다. <br>
+  <button onclick ="mySend()"> 파일수신</button>
+  <div id="result"></div>
+</body>
+</html>

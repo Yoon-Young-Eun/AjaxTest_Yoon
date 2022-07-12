@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM 생성</title>
+</head>
+<body>
+
+  <script type="text/javascript">
+   var img = document.createElement("img"); //createElement("img") 메서드를 사용하여 img Element 노드 생성
+  
+   //setAttribute(속성명, 속성값) 메서드를 사용하여<img> 태그에 속성을 설정한다.
+   img.setAttribute("src", "korea.png");
+   img.setAttribute("width","200");
+   img.setAttribute("height", "200");
+   
+   //마지막으로 <body> 태그에 생성된 img 엘리먼트 즉, <img> 태그를 추가한다.
+   document.body.appendChild(img);
+  </script>
+</body>
+</html>

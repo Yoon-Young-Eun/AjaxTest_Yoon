@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM 생성</title>
+</head>
+<body>
+
+   <script type="text/javascript">
+     var header= document.createElement("h1");  //createElement("h1")메서드를 사용하여 지정된
+                                                                                       //<h1> 태그에 해당하는 Element 노드를 생성한다.
+                                                                 
+                                                                                       		
+     var headerText = document.createTextNode("DOM 생성");
+     //createTextNode("DOM생성") 메서드를 사용하여 "DOM 생성" 문자열 값을 갖는 Text 노드를 생성한다.      
+     
+     header.appendChild(headerText);
+    //appendChild() 메서드를 사용하여 10행에서 생성한 h1 Element 노드에 Text 노드를 추가한다.
+    
+     document.body.appendChild(header);
+ 
+    // 마지막으로<body>  태그에 10행에서 생성한 h1 Element노드를 추가한다.
+     
+   </script>
+</body>
+</html>

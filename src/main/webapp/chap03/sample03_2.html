@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax실습</title>
+<script type="text/javascript">
+
+ var xhttp;
+ function createHttpRequest(){
+	 xhttp = new XMLHttpRequest();
+ }
+ 
+ function mySend(){ //1. createHttpRequest()함수를 호출하여 XMLHttpRequest 객체를 생성하고
+	 
+	 createHttpRequest(); 
+	 xhttp.onreadystatechange = callFunction;//3. onreadystatechange 프로퍼티에서는
+	 //readyState 반환값에 따라서 자동으로 호출하여.
+	 xhttp.open("GET", "sample.xml", true); //2. get방식으로 서버에 sample.xml 파일을 비동기로 요청한다. 
+	 xhttp.send(null);
+ }
+
+ 
+ function callFunction(){ // callFunction 함수를 설정한다
+	 if(xhttp.readyState==4){
+		 if(xhttp.status == 200){
+			 var responseData = xhttp.responseXML;//xml 형식으로 응답 데이터 처리를 위하여 responseXML 프로퍼티를 사용한다.
+			 var titles = responseData.getElementsByTagName("title");//DOM API 중에서 태그명으로 참고하기 위한 getElementsByTagName("title")
+			 //메서드를 사용하여 지정된<title>태그에 해당하는 반환값을 배열로 받는다. 반환된 배열의 
+			 var title =titles[0].firstChild.nodeValue;	//첫 번째  값을 title변수에 저장한다.
+			 var artists = responseData.getElementsByTagName("artist"); //위와 동일
+			 var artist = artists[0].firstChild.nodeValue; //반환된 배열의 첫번째 값을 artist변수에 저장.
+			 var albums = responseData.getElementsByTagName("album");
+			 var album = albums[0].firstChild.nodeValue;
+			 var years = responseData.getElementsByTagName("year");
+			 var year = years[0].firstChild.nodeValue;
+			 document.getElementById("result").innerHTML = title +"\t"+artist+"\t"+album+"\t"+year;
+			 //id가 result인 <div> 태그 innerHTML 속성을 사용하여 title변수의 값과 artist 변수의 값을 출력한다.
+		 }
+	 }
+ }
+</script>
+</head>
+<body>
+XML 파일 실습입니다.<br>
+<button onclick="mySend()">파일수신</button>
+<div id="result"></div>
+</body>
+</html>

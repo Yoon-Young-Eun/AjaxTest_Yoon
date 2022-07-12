@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM조회</title>
+</head>
+<body>
+  <P>P1입니다.</P>
+  <P>P2입니다.</P>
+  
+  <script type="text/javascript">
+    var p = document.getElementsByTagName("p");
+    // 모든 <p>태그를 조회하기 위해서 document, getElemensByTagName("p"); 메서드를 사용하여 배열로 반환받는다.
+    
+    console.log(p[0].innerHTML+"\t"+p[1].innerHTML);
+    //인덱스(첨자)를 사용하여 배열에 저장된 <p> 태그를 참조하고  innerHTML 속성으로 내용을 해당 태그의 
+    // 내용을 콘솔에 출력한다.
+    
+    for(var i=0;i<p.length; i++){    // 12행에서 결과를 배열로 반환받았기 때문에 JAVACSRIPT의 반복문 사용이 가능하다.
+    	console.log(i+">"+p[i].innerHTML);
+    }
+   </script>
+  </body>
+</html>
