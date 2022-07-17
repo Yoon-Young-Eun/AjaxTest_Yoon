@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$("ancestor descendant")선택자 실습</title>
+<script type="text/javascript" src="../jquery-3.6.0.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+	  $("form input").css("border", "2px dotted blue"); 
+	  $("form fieldset input").css("background-color", "yellow");
+  });
+ </script>
+</head>
+<body>
+  <form>
+    <div>기본 폼</div>
+    <label for="name">기본 폼의 자식</label>
+    <input name="name" id="name">
+    <fieldset>
+       <label for="newslettter">기본 폼의 자손, 필드셋의 자식</label>
+       <input name="newsletter" id="newsletter">
+    </fieldset>
+   </form>
+   기본 폼의 형제 : <input name="none">
+</body>
+</html>
+
+<!-- 9행 form 태그 자손중에 <input>태그의 border 속성을 설정한다. 따라서 <form>태그 내의
+ 모든 <input> 태그(18행과 21행)가 border 스타일을 적용받는다. 24행의 <input> 태그는 
+ <form>태그의 형제 노드로 자손이 아니기 때문에 CSS스타일 적용을 받지 않는다.
+ 
+ 10행 <form> 태그의 자손 중에서 <fieldset> 태그를 선택하고, <fieldset>태그 자손중에서
+ <input> 태그 backdground-color 속성을 설정한다. 따라사 21행의 <input> 태그가 
+ background-color 스타일을 적용받는다.  -->

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>$("#id")선택자 실습</title>
+<script type="text/javascript" src="../jquery-3.6.0.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+	  $("#target").css("color", "red"); //모든 요소중 id값이 "target"인 태그만 글자색을 "red"로 출력
+	  console.log("#targer 갑 : "+$("#target").text()); //선택자를 이용하여 선택된 태그의 내용을 검색하는
+  });//경우에는 인자가 없는 text()메서드를 사용한다. 만약 내용에 값을 설정하기 위해서는 '값'인자로 가진
+      //text(값) 메서드를 사용하면 된다.
+</script>
+</head>
+<body>
+     <div>DIV1</div>
+     <div id="target">DIV2</div>
+     <span>SPAN</span>
+</body>
+</html>
