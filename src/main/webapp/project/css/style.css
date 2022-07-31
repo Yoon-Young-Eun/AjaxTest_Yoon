@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+	#flex {
+			background-color: none;
+			width: 400px;
+			height: 150px;
+			border-radius: 15px;
+			display: -webkit-flex;
+			display: flex;
+		}
+
+	.item {
+			background-color: none;
+			border-radius: 10px;
+			width: 80px;
+			height: 50px;
+			margin: 10px;
+			color: white;
+			font-size: 26px;
+			text-align: center;
+			line-height: 50px;
+		}
+
+body {
+	background-image : url('./../images/main.png');
+	background-repeat : no-repeat;
+	background-size : cover;
+}
+
+#top_menu ul {
+	background-color : none;
+	list-style-type : none;
+	margin : 0;
+	padding : 0;
+	overflow : hidden;
+}
+
+#top_menu li {
+	float : right;
+	font-size : 12px;
+	list-style : none;
+}
+
+#top_menu li a {
+	display : block;
+	background-color : none;
+	color : white;
+	padding : 8px;
+	text-decoration : none;
+	text-align : center;
+}
+
+#top_menu li a current {
+	background-color : none;
+	color: white;
+}
+
+#top_menu li a:hover:not(.current) {
+	background-color : none;
+	color: white;
+	font-weight : bold;
+}
+
+#main_menu {
+	list-style : none; /* 불릿 없애기 */
+	height : 200px;
+	padding : 5px 1px;
+	margin : 0 auto;
+	background : none;
+	text-align : center;
+}
+
+#main_menu li {
+	float : left;
+	position : relative;
+	margin : 5px 30px;
+	padding : 0 auto;
+	display : inline;
+}
+
+#main_menu li a {
+	display : block; /*메뉴 칸 블록 형태로 만들기*/
+	font-weight : bold;
+	font-size : 18px;
+	padding : 7px 8px;
+	margin : 0;
+	color : white;
+	margin : 0;
+	text-decoration : none;
+	text-shadow : 0 1px 1px rgba(0, 0, 0, 0.3);
+} 
+
+#main_menu li:hover > a { /*메인 메뉴 링크에 마우스 포인터 올렸을 때 스타일*/
+	background : none;;
+	color : white;
+	margin : 0;
+	padding : 5px;
+}
+
+#main_menu ul {
+	list-style : none;
+	margin : 0;
+	padding : 0;
+	position : absolute; /*고정 위치에 표시*/
+	left : 0; /*부모 요소로부터 왼쪽 좌표값을 같게*/
+	top : 40px; /*부모 요소로부터 40px 아래에 표시*/
+	width : 500px;
+	background : #006eb7;
+	text-align : center;
+	opacity : 0;
+}
+
+#main_menu ul li {
+	float : none;
+	margin : 0;
+	padding : 0;
+	font-size : 10px;
+}
+
+#main_menu ul a {
+	font-weight : normal;
+	color : white;
+}
+
+#main_menu ul li:hover a {
+	font-weight : bold;
+} 
+
+#main_menu li:hover ul {
+	opacity : 1;	
+}
+
+#main_menu li:hover ul li {
+	height : 35px;
+	overflow : visible;
+	padding : 0;
+}

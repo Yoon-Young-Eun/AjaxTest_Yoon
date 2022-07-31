@@ -13,7 +13,7 @@
     float: left;
     font-size: 14px;
   }
-
+  
   div#small {
     width: 60px;
     height: 25px;
@@ -21,13 +21,13 @@
     background: #fab;
   }
   </style>
-
-
-<script type="text/javascript" src="jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../jquery-3.6.0.js"></script>
 <script type="text/javascript">
-
    $(document).ready(function(){
 	   $( "#prev ~ div" ).css( "border", "3px groove blue" );
+// id 값이 prev인 태그 36행<span,>태그 다음에 나오는 태그 중에서 <div>태그에 border 속성을 설정한다.
+// 따라서 37행과 38행 그리고 40행의 <div> 태그에 CSS 스타일이 적용되지만, 
+//39행<span>태그 이기 때문에 선택에서 제외되어서 CSS스타일이 적용되지 않는다.
    });
 </script>
 </head>
